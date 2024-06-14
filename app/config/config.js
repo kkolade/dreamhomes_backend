@@ -1,4 +1,3 @@
-// config/config.js
 import dotenv from 'dotenv';
 import { dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
