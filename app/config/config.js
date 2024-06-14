@@ -1,18 +1,18 @@
 import dotenv from 'dotenv';
-import { dirname, sep } from 'node:path';
+import { dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-// Load environment variables from .env file in the root directory
-dotenv.config({ path: new URL('../../.env', import.meta.url).pathname });
 
 // Resolve __dirname for ES modules
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const envPath = join(__dirname, '../../.env');
+
+dotenv.config({ path: envPath });
 
 // Define configurations for different environments
 const config = {
   development: {
     env: 'development',
-    port: process.env.PORT || 3200,
+    port: process.env.PORT || 8200,
     dir: {
       root: __dirname,
       static: `${__dirname}${sep}${process.env.STATIC_DIR}${sep}`,
@@ -24,6 +24,7 @@ const config = {
       user: process.env.DB_USER,
       pass: process.env.DB_PASS,
       name: process.env.DB_NAME,
+      uri: process.env.DB_URI,
     },
     jwtSecret: process.env.JWT_SECRET,
   },

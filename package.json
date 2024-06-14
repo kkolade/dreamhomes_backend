@@ -2,9 +2,12 @@
   "name": "dreamhomes_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "www/start.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./www/start.js",
+    "dev": "nodemon ./www/start.js --exec babel-node"
   },
   "keywords": [],
   "author": "",
